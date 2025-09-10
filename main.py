@@ -23,3 +23,25 @@ def hello_World():
     return "Hola mundo Flask"
 
 
+@app.route("/frutas")
+def list_frutas():
+    lista_frutas =["platano", "manzana", "fresa"]
+    return lista_frutas
+
+@app.route("/dic")
+def list_dic():
+    diccionarios = [{"pedro": "maria","Josua":"gringo"}]
+    return diccionarios
+
+
+#tomar parametro desde ruta
+@app.route("/name/<name>")
+def tu_nombre(name):
+    return f"hola, {name}, como estas"
+
+@app.route("/num/<parametro>")
+
+def cuadrado(parametro):
+    parametro = int(parametro)
+    return f" el cuadrado de {parametro} es {parametro*parametro}"
+ 
