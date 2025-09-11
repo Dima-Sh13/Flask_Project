@@ -45,3 +45,5 @@ def cuadrado(parametro):
     parametro = int(parametro)
     return f" el cuadrado de {parametro} es {parametro*parametro}"
  
+def cubo():
+    pass
