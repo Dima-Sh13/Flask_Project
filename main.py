@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 #Inicializamos la variable app con Flask
 app = Flask(__name__)
 
@@ -79,3 +80,6 @@ def mat_ope(num1, num2, ope):
          answer= f"La solucion es {num1 / num2}"
 
     return answer      
+@app.route("/")
+def prueba():
+    return render_template("hola.html")
