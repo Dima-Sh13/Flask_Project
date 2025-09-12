@@ -12,7 +12,7 @@ app = Flask(__name__)
 #flask --app main run -p 5002
 
 #comando para ejecutar el servidor en modo debug
-#flsk --app main --debug run
+#flask --app main --debug run
 
 
 
@@ -45,5 +45,35 @@ def cuadrado(parametro):
     parametro = int(parametro)
     return f" el cuadrado de {parametro} es {parametro*parametro}"
  
-def cubo():
-    pass
+"""
+realizar una ruta que dinamicamente pueda solicitar o realizar operaciones de 
+suma,resta,multiplicacion y division segun 2 parametros numericos recibidos
+"""
+
+@app.route("/suma/<num1>/<num2>")
+def suma(num1,num2):
+    num1= int(num1)
+    num2= int(num2)
+    result = num1 + num2
+    return str(result)
+
+
+def operaciones_matematicas(num1, num2):
+    suma = num1 + num2
+    resta = num1- num2
+    mult = num1 * num2
+    div = num1/ num2
+    return f"Suma: {suma}, Resta: {resta}, Multiplicacion: {mult}, Division: {div}"
+
+def mat_ope(num1, num2, ope):
+    result = 0
+    if ope == "suma":
+        result = num1 + num2
+    elif ope == "resta":
+        result = num1 - num2
+    elif ope == "multiplicacion":
+        result = num1 * num2
+    elif ope == "division":
+        result = num1//num2
+
+    return result        
