@@ -65,15 +65,17 @@ def operaciones_matematicas(num1, num2):
     div = num1/ num2
     return f"Suma: {suma}, Resta: {resta}, Multiplicacion: {mult}, Division: {div}"
 
+@app.route("/mates/<int:num1>/<int:num2>/<ope>")
 def mat_ope(num1, num2, ope):
-    result = 0
+    
+    answer = 0
     if ope == "suma":
-        result = num1 + num2
+        answer= f"La solucion es {num1 + num2}"
     elif ope == "resta":
-        result = num1 - num2
+         answer= f"La solucion es {num1 - num2}"
     elif ope == "multiplicacion":
-        result = num1 * num2
+         answer= f"La solucion es {num1 * num2}"
     elif ope == "division":
-        result = num1//num2
+         answer= f"La solucion es {num1 / num2}"
 
-    return result        
+    return answer      
